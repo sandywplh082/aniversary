@@ -1,1 +1,917 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #E5E5E5;
+  background-image: url("bg.jpg");
+}
+
+#card-front {
+  color: #FFDFDF;
+  z-index: 10;
+}
+
+#card, #card-front, #card-inside {
+  height: 580px;
+}
+
+.wrap {
+  padding: 1.5em 2.5em;
+  height: 100%;
+}
+
+#card-front, #card-inside {
+  width: 50%;
+  -webkit-box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 50%;
+}
+
+#card-inside .wrap {
+  background: #FFEFEF;
+  -webkit-box-shadow: inset 2px 0 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 2px 0 1px rgba(0, 0, 0, 0.05);
+}
+
+#card {
+  width: 960px;
+  margin: auto;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 5000px;
+          perspective: 5000px;
+  -webkit-transform: translateX(-25%);
+          transform: translateX(-25%);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+#card h1 {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-style: italic;
+  font-size: 70px;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15), 1px 1px 0 #ffc8c8, 2px 2px 0 #ff9696, 3px 3px 0 #ff7d7d;
+  color: #FFF;
+}
+
+#card-inside {
+  position: absolute;
+  width: 50%;
+  height: 580px;
+  left: 50%;
+  top: 0;
+  background: #FFEFEF;
+  transform-origin: right;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  box-shadow: inset 2px 0 1px rgba(0, 0, 0, 0.05);
+  z-index: 1;
+}
+
+#card-inside:nth-child(1) {
+  z-index: 3;
+  transform: translateX(0);
+}
+
+#card-inside:nth-child(2) {
+  z-index: 2;
+  transform: translateX(100%);
+}
+
+#card-inside:nth-child(3) {
+  z-index: 1;
+  transform: translateX(200%);
+}
+
+#card-inside.flipped {
+  transform: translateX(0) rotateY(180deg);
+}
+
+.page-turn-btn {
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #F44;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-family: 'Lobster', cursive;
+  font-size: 1.5em;
+  box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+p {
+  margin-top: 1em;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+p.signed {
+  margin-top: 1em;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 0.75em;
+}
+
+#card-front {
+  background-color: #ee9ca7;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FF5555), to(#FF7777));
+  background-image: linear-gradient(top, #FF5555 0%, #FF7777 100%);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: -webkit-transform 1s linear;
+  transition: -webkit-transform 1s linear;
+  transition: transform 1s linear;
+  transition: transform 1s linear, -webkit-transform 1s linear;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 5000px;
+          perspective: 5000px;
+}
+
+#card-front:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  background-color: #444;
+  -webkit-transform: translateZ(-1px);
+          transform: translateZ(-1px);
+}
+
+#card-front .wrap {
+  -webkit-transition: background 1s linear;
+  transition: background 1s linear;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+#card-front button {
+  position: absolute;
+  bottom: 1em;
+  right: -12px;
+  background: #F44;
+  color: #FFF;
+  font-family: 'Lobster', cursive;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: .5em;
+  border: none;
+  cursor: pointer;
+  -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+#card-front button:hover,
+#card-front button:focus {
+  background: #F22;
+}
+
+#close {
+  display: none;
+}
+
+#card.open-fully {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+#card.open-fully #close,
+#card-open-half #close {
+  display: inline;
+}
+
+#card.open-fully #open {
+  display: none;
+}
+
+#card.open-half #card-front,
+#card.close-half #card-front {
+  -webkit-transform: rotateY(-90deg);
+          transform: rotateY(-90deg);
+}
+
+#card.open-half .shadow {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#card.open-fully #card-front,
+#card.close-half #card-front {
+  background: #FFEFEF;
+}
+
+#card.open-fully #card-front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+#card.open-fully .shadow {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+footer {
+  max-width: 500px;
+  margin: 40px auto;
+font-family: 'Lobster', cursive;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #888;
+  text-align: center;
+}
+
+.cake_and_velas {
+  position: absolute;
+  bottom: 25%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+#cake {
+  display: block;
+  position: relative;
+  margin: -10em auto 0 auto;
+}
+
+.velas {
+  background: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: 228px;
+  left: 50%;
+  margin-left: -2.4px;
+  margin-top: -8.33333333px;
+  width: 5px;
+  height: 35px;
+  -webkit-transform: translateY(-300px);
+          transform: translateY(-300px);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-animation: in 500ms 5s ease-out forwards;
+          animation: in 500ms 5s ease-out forwards;
+}
+
+.velas:after,
+.velas:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.22222222px;
+}
+
+.velas:after {
+  top: 25%;
+  left: 0;
+}
+
+.velas:before {
+  top: 45%;
+  left: 0;
+}
+
+/* ============================================== Fire
+*/
+.fuego {
+  border-radius: 100%;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -2.6px;
+  width: 6.66666667px;
+  height: 18px;
+}
+
+.fuego:nth-child(1) {
+  -webkit-animation: fuego 2s 5.5s infinite;
+          animation: fuego 2s 5.5s infinite;
+}
+
+.fuego:nth-child(2) {
+  -webkit-animation: fuego 1.5s 5.5s infinite;
+          animation: fuego 1.5s 5.5s infinite;
+}
+
+.fuego:nth-child(3) {
+  -webkit-animation: fuego 1s 5.5s infinite;
+          animation: fuego 1s 5.5s infinite;
+}
+
+.fuego:nth-child(4) {
+  -webkit-animation: fuego 0.5s 5.5s infinite;
+          animation: fuego 0.5s 5.5s infinite;
+}
+
+.fuego:nth-child(5) {
+  -webkit-animation: fuego 0.2s 5.5s infinite;
+          animation: fuego 0.2s 5.5s infinite;
+}
+
+/* ============================================== Animation Fire
+*/
+@-webkit-keyframes fuego {
+  0%, 100% {
+    background: rgba(254, 248, 97, 0.5);
+    -webkit-box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+            box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    -webkit-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    -webkit-box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+            box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    -webkit-transform: translateY(-20px) scale(0);
+            transform: translateY(-20px) scale(0);
+  }
+}
+@keyframes fuego {
+  0%, 100% {
+    background: rgba(254, 248, 97, 0.5);
+    -webkit-box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+            box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    -webkit-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    -webkit-box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+            box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    -webkit-transform: translateY(-20px) scale(0);
+            transform: translateY(-20px) scale(0);
+  }
+}
+@-webkit-keyframes in {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes in {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+.text {
+  color: #8b6a60;
+  font-family: 'Lobster', cursive;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+}
+.text h1 {
+  font-size: 1.4em;
+}
+
+.card-front_inside {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  backface-visibility: hidden;
+  transform: translateZ(-1px) rotateY(180deg);
+  background-color: #ffefef;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: translateZ(-2px) rotateY(180deg);
+          transform: translateZ(-2px) rotateY(180deg);
+  pointer-events: none;
+  -webkit-transition: background 1s linear;
+  transition: background 1s linear;
+}
+
+.polaroid {
+  width: 240x;
+  height: 220px;
+  position: absolute;
+  float: left;
+  background: #1e1c18;
+  border: 7px solid #f5f5f5;
+  border-bottom: 50px solid #f5f5f5;
+  -webkit-box-shadow: 0 0 6px -1px #000;
+          box-shadow: 0 0 6px -1px #000;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  margin: auto;
+  -webkit-transform: rotate(-5deg);
+          transform: rotate(-5deg);
+  clear: both;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.polaroid img,
+.polaroid .img {
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-position: center;
+  background-size: cover;
+  -webkit-animation: fade-in 20s ease-in;
+          animation: fade-in 20s ease-in;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+.wishesFont{
+  font-family: 'Indie Flower', cursive;
+  font-weight: 800;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.photo-pages {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.photo-page {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.photo-page .polaroid {
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: inline-block;
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+}
+
+.photo-page .polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.photo-page .img {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.photo-page .caption {
+    font-family: 'Indie Flower', cursive;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Efek rotasi berbeda untuk setiap foto */
+.photo-page:nth-child(2n) .polaroid {
+    transform: rotate(2deg);
+}
+
+.photo-page:nth-child(3n) .polaroid {
+    transform: rotate(-1deg);
+}
+
+/* Styling untuk halaman card tambahan */
+.card-page {
+    background: #FFEFEF;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 20px;
+    display: none;
+    box-shadow: inset 2px 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.card-page.active {
+    display: block;
+}
+
+/* Styling untuk gallery foto */
+.photo-gallery {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.photo-item {
+    position: absolute;
+    width: 140px;
+    height: 190px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
+    transform-origin: center;
+    cursor: pointer;
+    border-bottom: 25px solid white;
+}
+
+/* Posisi foto diatur ulang agar muat tanpa scroll */
+.photo-item:nth-child(1) {
+    transform: rotate(-8deg);
+    top: 8%;
+    left: 8%;
+}
+
+.photo-item:nth-child(2) {
+    transform: rotate(5deg);
+    top: 10%;
+    right: 8%;
+}
+
+.photo-item:nth-child(3) {
+    transform: rotate(-5deg);
+    top: 32%;
+    left: 12%;
+}
+
+.photo-item:nth-child(4) {
+    transform: rotate(7deg);
+    top: 32%;
+    right: 12%;
+}
+
+.photo-item:nth-child(5) {
+    transform: rotate(-4deg);
+    top: 20%;
+    left: 50%;
+    margin-left: -70px;
+}
+
+.photo-item:nth-child(6) {
+    transform: rotate(6deg);
+    bottom: 12%;
+    left: 25%;
+}
+
+.photo-item:nth-child(7) {
+    transform: rotate(-6deg);
+    bottom: 12%;
+    right: 25%;
+}
+
+.photo-item .img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    font-size: 0.8em;
+    color: #333;
+}
+
+/* Efek hover yang lebih ringan */
+.photo-item:hover {
+    transform: rotate(0) scale(1.08);
+    z-index: 20;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Efek polaroid */
+.photo-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.1);
+    transition: all 0.4s ease;
+}
+
+.photo-item::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 8px;
+    right: 8px;
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+}
+
+/* Animasi kemunculan yang lebih natural */
+@keyframes fadeInPolaroid {
+    from {
+        opacity: 0;
+        transform: translateY(30px) rotate(var(--rotation)) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(var(--rotation)) scale(1);
+    }
+}
+
+.photo-item {
+    animation: fadeInPolaroid 0.8s ease-out forwards;
+    animation-delay: calc(var(--order) * 0.1s);
+}
+
+/* Update animasi untuk posisi baru */
+.photo-item:nth-child(1) { --order: 1; --rotation: -8deg; }
+.photo-item:nth-child(2) { --order: 2; --rotation: 5deg; }
+.photo-item:nth-child(3) { --order: 3; --rotation: -5deg; }
+.photo-item:nth-child(4) { --order: 4; --rotation: 7deg; }
+.photo-item:nth-child(5) { --order: 5; --rotation: -4deg; }
+.photo-item:nth-child(6) { --order: 6; --rotation: 6deg; }
+.photo-item:nth-child(7) { --order: 7; --rotation: -6deg; }
+
+/* Tombol navigasi */
+.nav-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    background: #F44;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Lobster', cursive;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: #F22;
+    transform: scale(1.05);
+}
+
+/* Styling untuk card kedua dan ketiga */
+#second-card, #third-card {
+    width: 50%;
+    height: 580px;
+    position: absolute;
+    left: 50%;
+    perspective: 5000px;
+    transform-style: preserve-3d;
+}
+
+#second-card {
+    top: 0;
+}
+
+#third-card {
+    top: 0;
+}
+
+#second-card-front, #third-card-front {
+    background: linear-gradient(to bottom, #FF5555, #FF7777);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-origin: left;
+    transition: transform 1s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+#second-card-inside, #third-card-inside {
+    background: #FFEFEF;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-shadow: inset 2px 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.open-second, .open-third {
+    position: absolute;
+    bottom: 1em;
+    right: -12px;
+    background: #F44;
+    color: #FFF;
+    font-family: 'Lobster', cursive;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: .5em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+#second-card.opened #second-card-front,
+#third-card.opened #third-card-front {
+    transform: rotateY(-180deg);
+}
+
+#second-card h2, #third-card h2 {
+    color: white;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+#card-inside:nth-child(1) {
+    z-index: 3;
+}
+
+#card-inside:nth-child(2) {
+    z-index: 2;
+    transform: translateX(-100%) rotateY(0deg);
+}
+
+#card-inside:nth-child(3) {
+    z-index: 1;
+    transform: translateX(-100%) rotateY(0deg);
+}
+
+#card-inside.flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+#card-inside.prev-flipped {
+    transform: translateX(-100%);
+    z-index: 1;
+}
+
+/* Styling untuk konten di dalam card */
+.wrap.wishesFont {
+    font-size: 1.2em;
+    line-height: 1.4;
+    padding: 1.5em;
+    color: #331717;
+}
+
+.wrap.wishesFont p {
+    margin-bottom: 0.8em;
+}
+
+.wrap.wishesFont center {
+    margin-bottom: 1.5em;
+}
+
+/* Styling untuk tanda tangan */
+p.signed {
+    margin-top: 1.5em;
+    text-align: right;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1em;
+    font-weight: bold;
+    color: #FF4B4B;
+}
+
+/* Styling untuk judul di dalam paragraf */
+.wrap.wishesFont p:has(> strong) {
+    font-size: 1.1em;
+    color: #FF4B4B;
+    margin: 0.8em 0;
+}
+
+/* Responsif untuk layar yang lebih kecil */
+@media (max-width: 1200px) {
+    .wrap.wishesFont {
+        font-size: 1.1em;
+        padding: 1.2em;
+    }
+}
+
+@media (max-width: 992px) {
+    .wrap.wishesFont {
+        font-size: 1em;
+        padding: 1em;
+    }
+}
+
+/* Tambahkan CSS untuk background love particles */
+.love-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(to bottom, #ffefef, #ffe5e5);
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(0, 100vh) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(var(--tx), -100px) rotate(var(--tr));
+        opacity: 0;
+    }
+}
+
+.love-particle {
+    position: fixed;
+    font-size: var(--size);
+    color: var(--color);
+    animation: floating var(--duration) linear infinite;
+    animation-delay: var(--delay);
+    left: var(--left);
+    z-index: -1;
+}
+
+/* Tambahkan CSS untuk floating love overlay */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: var(--size);
+    color: var(--color);
+    top: -20px;
+    animation: floatHeart var(--duration) linear infinite;
+    animation-delay: var(--delay);
+    opacity: 0;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg) scale(1);
+        opacity: 0;
+    }
+}
 
